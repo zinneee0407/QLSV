@@ -1,0 +1,95 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+
+.banner {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+    .banner img {
+        width: 100%;
+        height: 100px;
+    }
+
+.topnav {
+    overflow: hidden;
+    background-color: #009CCF;
+}
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        font-weight: bold;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+.left {
+    float: left;
+    width: 20%;
+}
+
+    .left ul {
+        background: #E8F3F8;
+        list-style-type: none;
+        margin-top: 5px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .left li {
+        border: solid 1px;
+        border-color: #ABCCDB;
+        height: 40px;
+        line-height: 40px;
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    .left a {
+        text-decoration: none;
+        color: #000000;
+        display: inline;
+    }
+
+.main {
+    float: left;
+    width: 80%;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.star {
+    color: red;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 400px;
+}
+
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+        /*          padding: 20px 16px;*/
+    }
+
+/* Just common table stuff. Really. */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}

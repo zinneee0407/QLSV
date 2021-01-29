@@ -1,0 +1,10 @@
+D:\Project1\QLSV\SVModel\bin\Release\SVModel.dll.config
+D:\Project1\QLSV\SVModel\bin\Release\SVModel.dll
+D:\Project1\QLSV\SVModel\bin\Release\SVModel.pdb
+D:\Project1\QLSV\SVModel\bin\Release\EntityFramework.SqlServer.dll
+D:\Project1\QLSV\SVModel\bin\Release\EntityFramework.dll
+D:\Project1\QLSV\SVModel\obj\Release\SVModel.csprojAssemblyReference.cache
+D:\Project1\QLSV\SVModel\obj\Release\SVModel.csproj.CoreCompileInputs.cache
+D:\Project1\QLSV\SVModel\obj\Release\SVModel.csproj.CopyComplete
+D:\Project1\QLSV\SVModel\obj\Release\SVModel.dll
+D:\Project1\QLSV\SVModel\obj\Release\SVModel.pdb

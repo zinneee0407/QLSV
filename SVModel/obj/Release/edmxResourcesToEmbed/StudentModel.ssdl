@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BaiTH5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_chuyennganh">
+    <Key>
+      <PropertyRef Name="Macn" />
+    </Key>
+    <Property Name="Macn" Type="int" Nullable="false" />
+    <Property Name="Tencn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_doan">
+    <Key>
+      <PropertyRef Name="Masv" />
+    </Key>
+    <Property Name="Masv" Type="int" Nullable="false" />
+    <Property Name="TenDA" Type="nvarchar" MaxLength="1000" />
+    <Property Name="GVHD" Type="int" />
+    <Property Name="GVPB" Type="int" />
+    <Property Name="linhvuc" Type="int" />
+    <Property Name="Diem" Type="float" />
+    <Property Name="Namtn" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_giangvien">
+    <Key>
+      <PropertyRef Name="Magv" />
+    </Key>
+    <Property Name="Magv" Type="int" Nullable="false" />
+    <Property Name="Tengv" Type="nvarchar" MaxLength="50" />
+    <Property Name="Namsinh" Type="datetime" />
+    <Property Name="Gioitinh" Type="bit" />
+    <Property Name="Hocvi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Dienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_khoahoc">
+    <Key>
+      <PropertyRef Name="Makh" />
+    </Key>
+    <Property Name="Makh" Type="int" Nullable="false" />
+    <Property Name="Tenkhoa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thoigian" Type="nchar" MaxLength="10" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_linhvuc">
+    <Key>
+      <PropertyRef Name="Malv" />
+    </Key>
+    <Property Name="Malv" Type="int" Nullable="false" />
+    <Property Name="Tenlv" Type="nvarchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_sinhvien">
+    <Key>
+      <PropertyRef Name="Masv" />
+    </Key>
+    <Property Name="Masv" Type="int" Nullable="false" />
+    <Property Name="TenSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="Namsinh" Type="date" />
+    <Property Name="Gioittinh" Type="bit" />
+    <Property Name="Khoa" Type="int" />
+    <Property Name="Chuyennganh" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Dienthoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tbl_doan_tbl_giangvien">
+    <End Role="tbl_giangvien" Type="Self.tbl_giangvien" Multiplicity="0..1" />
+    <End Role="tbl_doan" Type="Self.tbl_doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_giangvien">
+        <PropertyRef Name="Magv" />
+      </Principal>
+      <Dependent Role="tbl_doan">
+        <PropertyRef Name="GVHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_doan_tbl_giangvien1">
+    <End Role="tbl_giangvien" Type="Self.tbl_giangvien" Multiplicity="0..1" />
+    <End Role="tbl_doan" Type="Self.tbl_doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_giangvien">
+        <PropertyRef Name="Magv" />
+      </Principal>
+      <Dependent Role="tbl_doan">
+        <PropertyRef Name="GVPB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_doan_tbl_linhvuc">
+    <End Role="tbl_linhvuc" Type="Self.tbl_linhvuc" Multiplicity="0..1" />
+    <End Role="tbl_doan" Type="Self.tbl_doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_linhvuc">
+        <PropertyRef Name="Malv" />
+      </Principal>
+      <Dependent Role="tbl_doan">
+        <PropertyRef Name="linhvuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_sinhvien_tbl_chuyennganh">
+    <End Role="tbl_chuyennganh" Type="Self.tbl_chuyennganh" Multiplicity="0..1" />
+    <End Role="tbl_sinhvien" Type="Self.tbl_sinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_chuyennganh">
+        <PropertyRef Name="Macn" />
+      </Principal>
+      <Dependent Role="tbl_sinhvien">
+        <PropertyRef Name="Chuyennganh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_sinhvien_tbl_khoahoc">
+    <End Role="tbl_khoahoc" Type="Self.tbl_khoahoc" Multiplicity="0..1" />
+    <End Role="tbl_sinhvien" Type="Self.tbl_sinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_khoahoc">
+        <PropertyRef Name="Makh" />
+      </Principal>
+      <Dependent Role="tbl_sinhvien">
+        <PropertyRef Name="Khoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BaiTH5ModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_chuyennganh" EntityType="Self.tbl_chuyennganh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_doan" EntityType="Self.tbl_doan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_giangvien" EntityType="Self.tbl_giangvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_khoahoc" EntityType="Self.tbl_khoahoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_linhvuc" EntityType="Self.tbl_linhvuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sinhvien" EntityType="Self.tbl_sinhvien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_doan_tbl_giangvien" Association="Self.FK_tbl_doan_tbl_giangvien">
+      <End Role="tbl_giangvien" EntitySet="tbl_giangvien" />
+      <End Role="tbl_doan" EntitySet="tbl_doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_doan_tbl_giangvien1" Association="Self.FK_tbl_doan_tbl_giangvien1">
+      <End Role="tbl_giangvien" EntitySet="tbl_giangvien" />
+      <End Role="tbl_doan" EntitySet="tbl_doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_doan_tbl_linhvuc" Association="Self.FK_tbl_doan_tbl_linhvuc">
+      <End Role="tbl_linhvuc" EntitySet="tbl_linhvuc" />
+      <End Role="tbl_doan" EntitySet="tbl_doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_sinhvien_tbl_chuyennganh" Association="Self.FK_tbl_sinhvien_tbl_chuyennganh">
+      <End Role="tbl_chuyennganh" EntitySet="tbl_chuyennganh" />
+      <End Role="tbl_sinhvien" EntitySet="tbl_sinhvien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_sinhvien_tbl_khoahoc" Association="Self.FK_tbl_sinhvien_tbl_khoahoc">
+      <End Role="tbl_khoahoc" EntitySet="tbl_khoahoc" />
+      <End Role="tbl_sinhvien" EntitySet="tbl_sinhvien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

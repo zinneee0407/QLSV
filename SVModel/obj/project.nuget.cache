@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zOWB7E2zVWRR266dHt6K5IZczB706vvce34fWvspwAwsdX4WSp/DTwNWy63eoIEEPVdSWZerlE51gPMKQMZoSg==",
+  "success": true,
+  "projectFilePath": "D:\\Project1\\QLSV\\SVModel\\SVModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\duong\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
